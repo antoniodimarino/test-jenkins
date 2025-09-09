@@ -7,7 +7,7 @@ describe('Express app', () => {
     // setto il messaggio così il test è deterministico
     process.env.MESSAGE = 'Hello from tests!';
     // importa dopo aver settato l'env
-    app = require('../index');
+    app = require('../server');
   });
 
   test('GET / deve restituire il MESSAGE', async () => {

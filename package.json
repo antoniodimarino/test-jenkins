@@ -19,6 +19,7 @@
       ["jest-junit", { "outputDirectory": "reports/junit", "outputName": "jest-junit.xml" }]
     ],
     "coverageDirectory": "reports/coverage",
+    "collectCoverage": true,
     "collectCoverageFrom": ["index.js"]
   }
 }
