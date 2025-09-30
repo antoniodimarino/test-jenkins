@@ -24,4 +24,11 @@ describe('Express app', () => {
     expect(res.text).toBe('Hello from tests!');
   });
 
+  test('GET /elenco_utenti deve restituire una lista di nomi, cognomi, username', async () => {
+    const res = await request(app)
+    .get('/elenco_utenti')
+    .expect('Content-Type', /json/)
+    .expect(200);
+  })
+
 });
