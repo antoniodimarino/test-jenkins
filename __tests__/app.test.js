@@ -10,12 +10,6 @@ describe('Express app', () => {
     app = require('../server');
   });
 
-  test('GET / deve restituire il MESSAGE', async () => {
-    const res = await request(app).get('/');
-    expect(res.status).toBe(200);
-    expect(res.text).toBe('Hello from tests!');
-  });
-
   test('GET /health deve restituire stato ok e uptime numerico', async () => {
     const res = await request(app).get('/health');
     expect(res.status).toBe(200);
@@ -23,4 +17,11 @@ describe('Express app', () => {
     expect(typeof res.body.uptime).toBe('number');
     expect(res.body.uptime).toBeGreaterThanOrEqual(0);
   });
+
+  test('GET / deve restituire il MESSAGE', async () => {
+    const res = await request(app).get('/');
+    expect(res.status).toBe(200);
+    expect(res.text).toBe('Hello from tests!');
+  });
+
 });
