@@ -29,6 +29,24 @@ describe('Express app', () => {
     .get('/elenco_utenti')
     .expect('Content-Type', /json/)
     .expect(200);
-  })
+
+    const lista = Array.isArray(res.body)
+      ? res.body
+      : res.body?.utenti || res.body?.users || [];
+
+    expect(Array.isArray(lista)).toBe(true);
+    expect(lista.length).toBeGreaterThan(0);
+    
+    for (const u of lista) {
+      expect(u).toHaveProperty('nome');
+      expect(typeof u.nome).toBe('string');
+
+      expect(u).toHaveProperty('cognome');
+      expect(typeof u.cognome).toBe('string');
+
+      expect(u).toHaveProperty('username');
+      expect(typeof u.username).toBe('string');
+    }
+  });
 
 });

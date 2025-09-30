@@ -16,6 +16,10 @@ app.get('/health', (req, res) => {
   res.status(200).json({ status: 'ok', uptime: process.uptime() });
 });
 
+app.get('/elenco_utenti', (req, res) => {
+  res.json(utenti);
+});
+
 if (require.main === module) {
   app.listen(port, () => console.log(`App in ascolto su porta ${port}`));
 }
